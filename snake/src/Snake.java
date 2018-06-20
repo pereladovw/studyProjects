@@ -4,11 +4,8 @@ import java.util.ArrayList;
  * Класс змея
  */
 public class Snake {
-    //Направление движения змеи
     private SnakeDirection direction;
-    //Состояние - жива змея или нет.
     private boolean isAlive;
-    //Список кусочков змеи.
     private ArrayList<SnakeSection> sections;
 
     public Snake(int x, int y) {
@@ -63,28 +60,21 @@ public class Snake {
      * Координаты клетки заданы относительно текущей головы с помощью переменных (dx, dy).
      */
     private void move(int dx, int dy) {
-        //Создаем новую голову - новый "кусочек змеи".
         SnakeSection head = sections.get(0);
         head = new SnakeSection(head.getX() + dx, head.getY() + dy);
-
-        //Проверяем - не вылезла ли голова за границу комнаты
         checkBorders(head);
         if (!isAlive) return;
-
-        //Проверяем - не пересекает ли змея  саму себя
         checkBody(head);
         if (!isAlive) return;
-
-        //Проверяем - не съела ли змея мышь.
         Mouse mouse = Room.game.getMouse();
         if (head.getX() == mouse.getX() && head.getY() == mouse.getY()) //съела
         {
-            sections.add(0, head);                  //Добавили новую голову
-            Room.game.eatMouse();                   //Хвот не удаляем, но создаем новую мышь.
-        } else //просто движется
+            sections.add(0, head);                  
+            Room.game.eatMouse();                   
+        } else
         {
-            sections.add(0, head);                  //добавили новую голову
-            sections.remove(sections.size() - 1);   //удалили последний элемент с хвоста
+            sections.add(0, head);                  
+            sections.remove(sections.size() - 1);  
         }
     }
 
