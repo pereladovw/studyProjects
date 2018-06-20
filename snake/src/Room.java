@@ -51,16 +51,13 @@ public class Room {
 
     /**
      * Основной цикл программы.
-     * Тут происходят все важные действия
+     
      */
     public void run() {
-        //Создаем объект "наблюдатель за клавиатурой" и стартуем его.
         KeyboardObserver keyboardObserver = new KeyboardObserver();
         keyboardObserver.start();
-
-        //пока змея жива
         while (snake.isAlive()) {
-            //"наблюдатель" содержит события о нажатии клавиш?
+            //"Observer" содержит события о нажатии клавиш?
             if (keyboardObserver.hasKeyEvents()) {
                 KeyEvent event = keyboardObserver.getEventFromTop();
                 //Если равно символу 'q' - выйти из игры.
@@ -85,8 +82,8 @@ public class Room {
             sleep();        //пауза между ходами
         }
 
-        //Выводим сообщение "Game Over"
-        System.out.println("Game Over!");
+        
+        //System.out.println("Game Over!");
         System.exit(0);
     }
 
