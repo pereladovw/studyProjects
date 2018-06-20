@@ -6,15 +6,15 @@ public class Layer extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(java.awt.Color.GREEN); //Задаем цвет элементов зеленый
-        g.fillRect(Room.game.getWidth() * 10, 0, 10, (Room.game.getWidth() * 10) + 10);  //Рисуем прямоугольник показывающий край поля справа
-        g.fillRect(0, Room.game.getHeight() * 10, (Room.game.getHeight() * 10) + 10, 10); //Рисуем прямоугольник показывающий край поля снизу
+        g.setColor(java.awt.Color.GREEN); 
+        g.fillRect(Room.game.getWidth() * 10, 0, 10, (Room.game.getWidth() * 10) + 10);  
+        g.fillRect(0, Room.game.getHeight() * 10, (Room.game.getHeight() * 10) + 10, 10); 
 
-        g.fillRect(Room.game.getMouse().getX()*10, Room.game.getMouse().getY()*10, 10, 10); //Рисуем прямоугольник показывающий мышь
+        g.fillRect(Room.game.getMouse().getX()*10, Room.game.getMouse().getY()*10, 10, 10);
 
-        List<SnakeSection> getsection = Room.game.getSnake().getSections(); //Получаем секции змейки
+        List<SnakeSection> getsection = Room.game.getSnake().getSections(); 
         for (int i = 0; i < getsection.size(); i++) {
-            g.fillRect(getsection.get(i).getX()*10, getsection.get(i).getY()*10, 10, 10); //Рисуем по очереди секции змейки
+            g.fillRect(getsection.get(i).getX()*10, getsection.get(i).getY()*10, 10, 10); 
         }
     }
 }
