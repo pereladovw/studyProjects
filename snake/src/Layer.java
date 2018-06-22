@@ -6,7 +6,7 @@ public class Layer extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(java.awt.Color.GREEN); 
+        g.setColor(java.awt.Color.RED); 
         g.fillRect(Room.game.getWidth() * 10, 0, 10, (Room.game.getWidth() * 10) + 10);  
         g.fillRect(0, Room.game.getHeight() * 10, (Room.game.getHeight() * 10) + 10, 10); 
 
